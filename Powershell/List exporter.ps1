@@ -9,4 +9,4 @@ $extension = ".csv"
 
 #Do not edit below this line
 
-Get-ADGroupMember -identity $gruppe | select Name,@{Name="Office";Expression={ Get-ADUser $_.SamAccountName -Properties Office | Select -ExpandProperty Office }} | Export-csv -Delimiter ";" -path "$($path)$($filename)$($extension)" -NoTypeInformation
+Get-ADGroupMember -identity $group | select Name,@{Name="Office";Expression={ Get-ADUser $_.SamAccountName -Properties Office | Select -ExpandProperty Office }} | Export-csv -Delimiter ";" -path "$($path)$($filename)$($extension)" -NoTypeInformation
